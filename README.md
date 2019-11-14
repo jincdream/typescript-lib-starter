@@ -8,9 +8,9 @@
 >
 > <div align="center"><a href="https://paypal.me/martinhochel">Buy me a ☕️<br/><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate"></a></div>
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Hotell/typescript-lib-starter.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/jincdream/typescript-lib-starter.svg)](https://greenkeeper.io/)
 
-[![Build Status](https://travis-ci.org/Hotell/typescript-lib-starter.svg?branch=master)](https://travis-ci.org/Hotell/typescript-lib-starter)
+[![Build Status](https://travis-ci.org/jincdream/typescript-lib-starter.svg?branch=master)](https://travis-ci.org/jincdream/typescript-lib-starter)
 [![NPM version](https://img.shields.io/npm/v/%40martin_hotell%2Ftypescript-lib-starter.svg)](https://www.npmjs.com/package/@martin_hotell/typescript-lib-starter)
 ![Downloads](https://img.shields.io/npm/dm/@martin_hotell/typescript-lib-starter.svg)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
@@ -36,7 +36,7 @@
 
 ## ✌️ start coding in 2 steps
 
-1.  `git clone https://github.com/Hotell/typescript-lib-starter <your-libary-folder-name> && cd $_`
+1.  `git clone https://github.com/jincdream/typescript-lib-starter <your-libary-folder-name> && cd $_`
 
 1.  `yarn`
 
