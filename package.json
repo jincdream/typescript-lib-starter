@@ -2,9 +2,7 @@
   "name": "",
   "version": "0.0.1",
   "description": "",
-  "keywords": [
-    
-  ],
+  "keywords": [],
   "main": "./bundles/index.umd.js",
   "module": "./esm5/index.js",
   "es2015": "./esm2015/index.js",
@@ -12,7 +10,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/jincdream/selector"
+    "url": "https://github.com/jincdream/obs-parser"
   },
   "author": "jinc.cjc <jinc.cjc@alibaba-inc.com>",
   "license": "MIT",
@@ -26,7 +24,7 @@
     "prebuild": "npm run cleanup && npm run verify",
     "build": "tsc && tsc --target es2018 --outDir dist/esm2015 && rollup -c config/rollup.config.js && rollup -c config/rollup.config.js --environment NODE_ENV:production",
     "postbuild": "node scripts/copy",
-    "docs": "typedoc -p . --theme minimal --target 'es6' --excludeNotExported --excludePrivate --ignoreCompilerErrors --exclude \"**/src/**/__tests__/*.*\" --out docs src/",
+    "docs": "rm -rf docs && npx typedoc --plugin typedoc-plugin-markdown --out docs src",
     "test": "jest -c ./config/jest.config.js",
     "test:watch": "npm t -- --watch --verbose",
     "test:coverage": "npm t -- --coverage",
@@ -74,17 +72,18 @@
   "peerDependencies": {
     "tslib": ">=1.9.0"
   },
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/json5": "0.0.30",
+    "typedoc": "^0.17.3",
+    "typedoc-plugin-markdown": "^2.2.17",
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
     "@types/jest": "23.3.10",
+    "@types/json5": "0.0.30",
     "@types/lodash.clonedeepwith": "4.5.6",
     "@types/node": "8.10.*",
     "@types/prettier": "1.15.2",
+    "@types/prompts": "^2.0.5",
     "@types/webpack-config-utils": "2.3.0",
     "brotli-size": "0.0.3",
     "commitizen": "3.0.5",
