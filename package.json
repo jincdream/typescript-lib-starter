@@ -2,7 +2,13 @@
   "name": "",
   "version": "0.0.1",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "mt2",
+    "ali",
+    "lomt",
+    "config",
+    "config loader"
+  ],
   "main": "./bundles/index.umd.js",
   "module": "./esm5/index.js",
   "es2015": "./esm2015/index.js",
@@ -10,8 +16,8 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/jincdream/obs-parser"
-  },
+    "url": ""
+  }
   "author": "jinc.cjc <jinc.cjc@alibaba-inc.com>",
   "license": "MIT",
   "engines": {
@@ -21,29 +27,29 @@
   },
   "scripts": {
     "cleanup": "shx rm -rf dist",
-    "prebuild": "npm run cleanup && npm run verify",
+    "prebuild": "tnpm run cleanup && tnpm run verify",
     "build": "tsc && tsc --target es2018 --outDir dist/esm2015 && rollup -c config/rollup.config.js && rollup -c config/rollup.config.js --environment NODE_ENV:production",
     "postbuild": "node scripts/copy",
-    "docs": "rm -rf docs && npx typedoc --plugin typedoc-plugin-markdown --out docs src",
+    "docs": "rm -rf docs && typedoc --plugin typedoc-plugin-markdown --out docs src",
     "test": "jest -c ./config/jest.config.js",
-    "test:watch": "npm t -- --watch --verbose",
-    "test:coverage": "npm t -- --coverage",
-    "test:ci": "npm t -- --ci",
+    "test:watch": "tnpm t -- --watch --verbose",
+    "test:coverage": "tnpm t -- --coverage",
+    "test:ci": "tnpm t -- --ci",
     "validate-js": "tsc -p ./config && tsc -p ./scripts",
-    "verify": "npm run validate-js && npm run style && npm run test:ci",
+    "verify": "tnpm run validate-js && tnpm run style && tnpm run test:ci",
     "commit": "git-cz",
-    "style": "npm run format -- --list-different && npm run lint",
-    "style:fix": "npm run format:fix && npm run lint:fix",
+    "style": "tnpm run format -- --list-different && tnpm run lint",
+    "style:fix": "tnpm run format:fix && tnpm run lint:fix",
     "format": "prettier \"./src/**/*.{ts,tsx,js,jsx,css,scss,sass,less,md}\"",
-    "format:fix": "npm run format -- --write",
+    "format:fix": "tnpm run format -- --write",
     "lint": "tslint --project tsconfig.json --format codeFrame",
-    "lint:fix": "npm run lint -- --fix",
-    "prerelease": "npm run build",
+    "lint:fix": "tnpm run lint -- --fix",
+    "prerelease": "tnpm run build",
     "release": "standard-version",
-    "postrelease": "node scripts/copy && node scripts/build && npm run release:github && npm run release:npm",
+    "postrelease": "node scripts/copy && node scripts/build && tnpm run release:github && tnpm run release:npm",
     "release:github": "git push --no-verify --follow-tags origin master",
-    "release:npm": "npm publish dist",
-    "release:preflight": "npm pack ./dist --dry-run",
+    "release:npm": "tnpm publish dist",
+    "release:preflight": "tnpm pack ./dist --dry-run",
     "size": "node scripts/file-size ./dist/bundles/index.umd.min.js ./dist/bundles/index.esm.min.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
   },
@@ -56,7 +62,7 @@
     "hooks": {
       "commit-msg": "commitlint --config config/commitlint.config.js -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged",
-      "pre-push": "npm run style && npm test -- --bail --onlyChanged"
+      "pre-push": "tnpm run style && tnpm test -- --bail --onlyChanged"
     }
   },
   "lint-staged": {
@@ -65,17 +71,14 @@
       "git add"
     ],
     "src/**/*.{ts,tsx}": [
-      "npm run lint:fix",
+      "tnpm run lint:fix",
       "git add"
     ]
   },
   "peerDependencies": {
     "tslib": ">=1.9.0"
   },
-  "dependencies": {},
   "devDependencies": {
-    "typedoc": "^0.17.3",
-    "typedoc-plugin-markdown": "^2.2.17",
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
     "@types/jest": "23.3.10",
@@ -114,7 +117,8 @@
     "tslint-config-standard": "8.0.1",
     "tslint-etc": "1.2.12",
     "tslint-react": "3.6.0",
-    "typedoc": "0.13.0",
+    "typedoc": "^0.19.2",
+    "typedoc-plugin-markdown": "^3.0.0",
     "typescript": "^3.7.0",
     "typescript-tslint-plugin": "0.2.1",
     "webpack-config-utils": "2.3.1"
